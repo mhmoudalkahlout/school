@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\ClassController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,15 +28,13 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard', [
-            'isAdmin' => Auth::user()->isAdmin(),
-            'isTeacher' => Auth::user()->isTeacher(),
-            'isStudent' => Auth::user()->isStudent(),
-        ]);
+        return Inertia::render('Dashboard');
     })->name('dashboard');
 
     Route::middleware('can:isAdmin')->group(function () {
-
+        Route::resource('classes', ClassController::class, [
+            'parameters' => ['classes' => 'classModel'],
+        ])->except('create', 'edit', 'show');
     });
 
     Route::middleware('can:isTeacher')->group(function () {

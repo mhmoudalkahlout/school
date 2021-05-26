@@ -1,5 +1,5 @@
 <template>
-    <app-layout :isAdmin="isAdmin" :isTeacher="isTeacher" :isStudent="isStudent">
+    <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Dashboard
@@ -21,8 +21,6 @@
     import Welcome from '@/Jetstream/Welcome'
 
     export default {
-
-        props: ['isAdmin', 'isTeacher', 'isStudent'],
 
         components: {
             AppLayout,

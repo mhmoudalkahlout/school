@@ -13,6 +13,10 @@ class ClassModel extends Model
 
     protected $table = 'classes';
 
+    protected $fillable = [
+        'name', 'teacher_id'
+    ];
+
     public function students()
     {
         return $this->belongsToMany(Student::class);

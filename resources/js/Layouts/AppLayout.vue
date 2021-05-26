@@ -23,20 +23,8 @@
                             </div>
 
                             <div v-if="isAdmin" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard admin
-                                </jet-nav-link>
-                            </div>
-
-                            <div v-if="isTeacher" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard teacher
-                                </jet-nav-link>
-                            </div>
-
-                            <div v-if="isStudent" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard student
+                                <jet-nav-link :href="route('classes.index')" :active="route().current('classes.index')">
+                                    Classes
                                 </jet-nav-link>
                             </div>
 
